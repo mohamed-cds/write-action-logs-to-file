@@ -1,0 +1,21 @@
+name: "Save GitHub Action workflows logs to disk"
+description: "Downloads github workflow logs and save to disk"
+author: "Mohamed Nur"
+inputs:
+  github_token:
+    description: "GitHub PAT"
+  github_org:
+    description: "The github organization to read the workflows logs from"
+  github_repository:
+    description: "The github repository to read the workflows logs from"
+  github_run_id:
+    description: "The workflow specific run id to read the logs from"
+  logs_output_path:
+    description: "Where to save log files"
+
+outputs:
+  result:
+    description: "Result"
+runs:
+  using: "docker"
+  image: "Dockerfile"
