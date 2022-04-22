@@ -106,9 +106,8 @@ def main():
                 print(f"::set-output name=result::{output}")
                 sys.exit(-1)
 
-            logs = io.BytesIO(r.content)
-            with open(logs_output_path, "wb") as f:
-              f.write(logs.getbuffer())
+            with open(f"{logs_output_path}/{str(job_id)}.log", "wb") as f:
+                f.write(r.content)
 
         except requests.exceptions.HTTPError as errh:
             output = "GITHUB API Http Error:" + str(errh)
